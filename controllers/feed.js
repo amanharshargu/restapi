@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+//test
 const { validationResult } = require("express-validator");
 
 const Post = require("../models/post");
