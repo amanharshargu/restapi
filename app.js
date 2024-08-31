@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const multer = require("multer");
+require('dotenv').config();
 
 const feedRoutes = require("./routes/feed");
 const authRoutes = require("./routes/auth");
@@ -58,9 +59,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://test:asdf1234@test.u63aehp.mongodb.net/messages?retryWrites=true&w=majority&appName=test"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to MongoDB");
     app.listen(8080);
